@@ -1,0 +1,8 @@
+Wie einbinden: 
+
+In der [Display] Section der .ini Datei folgende Zeilen hinzufügen:
+
+EMBED_TAB_NAME=Werkzeugübersicht
+EMBED_TAB_COMMAND=halcmd loadusr -Wn gladetab gladevcp -c gladetab -x {XID} -u werkzeugscreen.py werkzeugscreen.glade
+
+Die beiden Dateien werkzeugscreen.py und werkzeugscreen.glade einfach in den Ordner hinzufügen, in dem auch die .ini liegt. 
