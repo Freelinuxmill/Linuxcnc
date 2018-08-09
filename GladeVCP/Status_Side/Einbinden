@@ -1,0 +1,12 @@
+
+Wie einbinden: 
+
+In der [Display] Section der .ini Datei folgende Zeilen hinzufügen:
+
+GLADEVCP= -u status.py status.glade
+
+wobei status.py nur eine leere Datei ist mit eben diesem Namen, da ich hier keinen Python Code verwende.
+
+Achtung: in dem Status.hal File werden MDI-Commands aufgerufen. Diese sind dafür da, um meine Digitalports auf HIGH/LOW zu setzen und 
+         damit Maschinenspezifisch. --> Vor dem Testen alle Zeilen mit den MDI Commands entfernen, dann startet der Screen nur sind halt 
+         die Buttons der Ventile ohne Funktion
