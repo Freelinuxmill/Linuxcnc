@@ -1,0 +1,14 @@
+#---------------------------------------------------------------
+#Spindelsteuerung über Statustab in Linuxcnc + Anzeige im Halmeter
+#---------------------------------------------------------------
+net spindle-speed-cmd   => gladevcp.hal_meter1
+net spindle-on 		=> gladevcp.spindle-on-led 
+
+net rack-offe	  	gladevcp.butt-rack-on           => halui.mdi-command-03
+net tool-out      	gladevcp.butt-toolout-on        => halui.mdi-command-04
+net rack-zu	  	gladevcp.butt-rack-off	        => halui.mdi-command-05
+net tool-out-off  	gladevcp.butt-toolout-off	=> halui.mdi-command-06
+
+net man-mode		gladevcp.manual-led	        <= halui.mode.is-manual
+net mdi-mode		gladevcp.mdi-led		<= halui.mode.is-mdi
+net auto-mode           gladevcp.auto-led		<= halui.mode.is-auto
