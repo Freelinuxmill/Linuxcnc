@@ -88,16 +88,18 @@ class HandlerClass:
 	self.tool = []
 	self.string = []
 	#Diesen Pfad an jeweilige Maschine Individuell anpassen!
-	with open("/home/xpertmill/linuxcnc/configs/Simulator/sim_mm.tbl", "r") as datei:
+	pocket = 1
+	while pocket <= 6:
+		with open("/home/xpertmill/linuxcnc/configs/Simulator/sim_mm.tbl", "r") as datei:
 		#For schleife durchsucht jede Zeile nach Pockets und speichert toolnumber und toolcomment in self.tool und self.string
-		pocket = 1
-		for line in datei:
-		        if line.find("P"+str(pocket)) != -1 and pocket <=6 :                                          
-		            self.tool.append(line[1:line.find(" ")+1])                      
-		            self.string.append(line[line.find(";")+1: len(line)-1])      
-			    self.builder.get_object("labelT"+str(pocket)).set_label("T %d" %int(self.tool[pocket-1]))
-			    self.builder.get_object("labelC"+str(pocket)).set_label(self.string[pocket-1])
-			    pocket = pocket+1
+			for line in datei:
+			        if line.find("P"+str(pocket)) != -1 and pocket <=6 :                                          
+			            self.tool.append(line[1:line.find(" ")+1])                      
+			            self.string.append(line[line.find(";")+1: len(line)-1])      
+				    self.builder.get_object("labelT"+str(pocket)).set_label("T %d" %int(self.tool[pocket-1]))
+				    self.builder.get_object("labelC"+str(pocket)).set_label(self.string[pocket-1])
+				    print(self.tool[pocket-1])
+				    pocket = pocket+1
 		datei.close()
 
 def get_handlers(halcomp,builder,useropts):
